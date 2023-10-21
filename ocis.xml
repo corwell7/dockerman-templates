@@ -15,7 +15,7 @@ https://github.com/owncloud/ocis</Overview>
   <Category>Cloud:</Category>
   <WebUI>https://[IP]:[PORT:9200]</WebUI>
   <TemplateURL/>
-  <Icon>https://owncloud.com/wp-content/themes/ownCloud/dist/assets/img/favicon/apple-touch-icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/ocis.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
