@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>owncloud-infinite-scale</Name>
+  <Repository>owncloud/ocis</Repository>
+  <Registry>https://hub.docker.com/r/owncloud/ocis</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://central.owncloud.org/c/ocis/</Support>
+  <Project>https://github.com/owncloud/ocis</Project>
+  <Overview>ownCloud Infinite Scale (oCIS) is the new file sync &amp;amp; share platform that will be the foundation of your data management platform.&#xD;
+&#xD;
+https://github.com/owncloud/ocis</Overview>
+  <Category>Cloud:</Category>
+  <WebUI>https://[IP]:[PORT:9200]</WebUI>
+  <TemplateURL/>
+  <Icon>https://owncloud.com/wp-content/themes/ownCloud/dist/assets/img/favicon/apple-touch-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1697867474</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WEBUI" Target="9200" Default="9200" Mode="tcp" Description="For connecting to the frontend" Type="Port" Display="always" Required="false" Mask="false"/>
+  <Config Name="Appdata / config" Target="/etc/ocis" Default="/mnt/user/appdata/ocis/ocis-config/" Mode="rw" Description="For configuration files" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Data" Target="/var/lib/ocis" Default="/mnt/user/ocis/ocis-data/" Mode="rw" Description="For data" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Use Embedded Self-Signed Certificates?" Target="OCIS_INSECURE" Default="true" Mode="" Description="Determines whether owncloud should use an auto-generated self-signed certificate. Setting to false requires a user provided signed certificate (or using a reverse proxy)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="HTTP Service Bind Address" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="The bind address of the HTTP service (within the container). This should match the WEBUI port." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="URL" Target="OCIS_URL" Default="https://[IP]:9200" Mode="" Description="Set to the FQDN you'll be using for owncloud. Can be an IP or a domain etc. Otherwise owncloud will use localhost (container address)." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Log File" Target="OCIS_LOG_FILE" Default="/etc/ocis/ocis.log" Mode="" Description="Log file location (within container)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="OIDC Issuer" Target="OCIS_OIDC_ISSUER" Default="" Mode="" Description="URL of your OIDC Issuer. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="OIDC Client ID" Target="OCIS_OIDC_CLIENT_ID" Default="" Mode="" Description="OIDC Client ID (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="OIDC Config URL" Target="WEB_OIDC_METADATA_URL" Default="" Mode="" Description="OIDC Config Endpoint (/.well-known/openid-configuration) (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Rewrite OIDC config endpoint" Target="PROXY_OIDC_REWRITE_WELLKNOWN" Default="true" Mode="" Description="Enables rewriting the /.well-known/openid-configuration to the configured OIDC issuer. Needed by the Desktop Client, Android Client and iOS Client to discover the OIDC provider. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Token Verification Method" Target="PROXY_OIDC_ACCESS_TOKEN_VERIFY_METHOD" Default="jwt" Mode="" Description="Sets how OIDC access tokens should be verified. Possible values are 'none' and 'jwt'. When using 'none', no special validation apart from using it for accessing the IPD&#x2019;s userinfo endpoint will be done. When using 'jwt', it tries to parse the access token as a jwt token and verifies the signature using the keys published on the IDP&#x2019;s 'jwks_uri'. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+</Container>
