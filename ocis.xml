@@ -23,12 +23,12 @@ https://github.com/owncloud/ocis</Overview>
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="WEBUI" Target="9200" Default="9200" Mode="tcp" Description="For connecting to the frontend" Type="Port" Display="always" Required="false" Mask="false"/>
-  <Config Name="Appdata / config" Target="/etc/ocis" Default="/mnt/user/appdata/ocis/ocis-config/" Mode="rw" Description="For configuration files" Type="Path" Display="always" Required="false" Mask="false"/>
-  <Config Name="Data" Target="/var/lib/ocis" Default="/mnt/user/ocis/ocis-data/" Mode="rw" Description="For data" Type="Path" Display="always" Required="false" Mask="false"/>
-  <Config Name="Self-Signed cert" Target="OCIS_INSECURE" Default="true" Mode="" Description="Determines whether owncloud should use an auto-generated self-signed certificate. Setting to false requires a user provided signed certificate (or using a reverse proxy)" Type="Variable" Display="always" Required="false" Mask="false"/>
-  <Config Name="HTTP Service Bind Address" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="The bind address of the HTTP service (within the container). This should match the WEBUI port." Type="Variable" Display="always" Required="false" Mask="false"/>
-  <Config Name="URL" Target="OCIS_URL" Default="https://[IP]:9200" Mode="" Description="Set to the FQDN you'll be using for owncloud. Can be an IP or a domain etc. Otherwise owncloud will use localhost (container address)." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="WEBUI" Target="9200" Default="9200" Mode="tcp" Description="For connecting to the frontend" Type="Port" Display="always" Required="true" Mask="false"/>
+  <Config Name="Appdata / config" Target="/etc/ocis" Default="/mnt/user/appdata/ocis/ocis-config/" Mode="rw" Description="For configuration files" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Data" Target="/var/lib/ocis" Default="/mnt/user/ocis/ocis-data/" Mode="rw" Description="For data" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Self-Signed cert" Target="OCIS_INSECURE" Default="true" Mode="" Description="Determines whether owncloud should use an auto-generated self-signed certificate. Setting to false requires a user provided signed certificate (or using a reverse proxy)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="HTTP Service Bind Address" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="The bind address of the HTTP service (within the container). This should match the WEBUI port." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="URL" Target="OCIS_URL" Default="https://[IP]:9200" Mode="" Description="Set to the FQDN you'll be using for owncloud. Can be an IP or a domain etc. Otherwise owncloud will use localhost (container address)." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Log File" Target="OCIS_LOG_FILE" Default="/etc/ocis/ocis.log" Mode="" Description="Log file location (within container)" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="OIDC Issuer" Target="OCIS_OIDC_ISSUER" Default="" Mode="" Description="URL of your OIDC Issuer. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="OIDC Client ID" Target="OCIS_OIDC_CLIENT_ID" Default="" Mode="" Description="OIDC Client ID (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
