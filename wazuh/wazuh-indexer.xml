@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wazuh.indexer</Name>
+  <Repository>wazuh/wazuh-indexer:4.7.3</Repository>
+  <Registry>https://hub.docker.com/r/wazuh/wazuh-indexer/</Registry>
+  <Network>wazuh</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/wazuh/wazuh</Project>
+  <Overview>Wazuh Indexer&#xD;
+&#xD;
+https://hub.docker.com/r/wazuh/wazuh-indexer/</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/wazuh-indexer.png</Icon>
+  <ExtraParams>--hostname wazuh.indexer</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1710767756</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Wazuh Indexer Data" Target="/var/lib/wazuh-indexer" Default="/mnt/cache/appdata/wazuh/wazuh-indexer-data" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Config file" Target="/usr/share/wazuh-indexer/opensearch.yml" Default="/mnt/cache/appdata/wazuh/wazuh_indexer/wazuh.indexer.yml" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="User config" Target="/usr/share/wazuh-indexer/opensearch-security/internal_users.yml" Default="/mnt/user/appdata/wazuh/wazuh_indexer/internal_users.yml" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="API" Target="9200" Default="9200" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Root CA Cert" Target="/usr/share/wazuh-indexer/certs/root-ca.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/root-ca.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh Indexer Key" Target="/usr/share/wazuh-indexer/certs/wazuh.indexer.key" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/wazuh.indexer-key.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh Indexer Cert" Target="/usr/share/wazuh-indexer/certs/wazuh.indexer.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/wazuh.indexer.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Admin Cert" Target="/usr/share/wazuh-indexer/certs/admin.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/admin.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Admin Key" Target="/usr/share/wazuh-indexer/certs/admin-key.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/admin-key.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Memory Heap Size" Target="OPENSEARCH_JAVA_OPTS" Default="-Xms512m -Xmx512m" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false"></Config>
+</Container>

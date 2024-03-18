@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wazuh.manager</Name>
+  <Repository>wazuh/wazuh-manager:4.7.3</Repository>
+  <Registry>https://hub.docker.com/r/wazuh/wazuh-manager</Registry>
+  <Network>wazuh</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/wazuh/wazuh</Project>
+  <Overview>Wazuh Manager / Server&#xD;
+&#xD;
+https://hub.docker.com/r/wazuh/wazuh-manager</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/wazuh-server.png</Icon>
+  <ExtraParams>--hostname wazuh.manager --ulimit nofile=458752:458752</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1710767890</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Agent connection service port" Target="1514" Default="1514" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Agent enrollment service port" Target="1515" Default="1515" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh Syslog collector port" Target="514" Default="514" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Wazuh Indexer URL" Target="INDEXER_URL" Default="https://wazuh.indexer:9200" Mode="" Description="Enter the URL of the indexer, including FQDN (hostname, IP etc.) and port." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Indexer Username" Target="INDEXER_USERNAME" Default="admin" Mode="" Description="The admin user specified in internal_users.yml (wazuh indexer config)" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Indexer Password" Target="INDEXER_PASSWORD" Default="SecretPassword" Mode="" Description="The password for the admin user specified in internal_users.yml (wazuh indexer config). See the docs on changing the password from the default (SecretPassword)." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Filebeat SSL Verification mode (full or none)" Target="FILEBEAT_SSL_VERIFICATION_MODE" Default="full" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh API username" Target="API_USERNAME" Default="wazuh-wui" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh API password" Target="API_PASSWORD" Default="MyS3cr37P450r.*-" Mode="" Description="Set the API password here. If you change it, update the dashboard container config / variable. " Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Wazuh Manager Config" Target="/wazuh-config-mount/etc/ossec.conf" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_manager.conf" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Filebeat Key" Target="/etc/ssl/filebeat.key" Default="/mnt/user/appdata/wazuh/wazuh-certificates/wazuh.manager-key.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of API Config" Target="/var/ossec/api/configuration" Default="/mnt/user/appdata/wazuh/wazuh_cluster/wazuh_api_configuration" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Filebeat SSL Key" Target="SSL_KEY" Default="/etc/ssl/filebeat.key" Mode="" Description="Container path" Type="Variable" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Filebeat SSL Certificate" Target="SSL_CERTIFICATE" Default="/etc/ssl/filebeat.pem" Mode="" Description="Container path" Type="Variable" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Filebeat SSL CA" Target="SSL_CERTIFICATE_AUTHORITIES" Default="/etc/ssl/root-ca.pem" Mode="" Description="Container path" Type="Variable" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of etc Directory" Target="/var/ossec/etc" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_etc" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Logs Directory" Target="/var/ossec/logs" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_logs" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Queue Directory" Target="/var/ossec/queue" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_queue" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Multigroups Directory" Target="/var/ossec/var/multigroups" Default="/mnt/cache/appdata/wazuh/wazuh_cluster//mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_var_multigroups" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Integrations Directory" Target="/var/ossec/integrations" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_integrations" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Active Response Directory" Target="/var/ossec/active-response/bin" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_active_response" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Agentless Directory" Target="/var/ossec/agentless" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_agentless" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Wodles Directory" Target="/var/ossec/wodles" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/wazuh_wodles" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Filebeat etc Directory" Target="/etc/filebeat" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/filebeat_etc" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Path of Filebeat Var Directory" Target="/var/lib/filebeat" Default="/mnt/cache/appdata/wazuh/wazuh_cluster/filebeat_var" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Filebeat Cert" Target="/etc/ssl/filebeat.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/wazuh.manager.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Root CA Cert" Target="/etc/ssl/root-ca.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/root-ca-manager.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+</Container>

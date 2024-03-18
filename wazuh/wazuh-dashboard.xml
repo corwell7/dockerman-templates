@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wazuh.dashboard</Name>
+  <Repository>wazuh/wazuh-dashboard:4.7.3</Repository>
+  <Registry>https://hub.docker.com/r/wazuh/wazuh-dashboard</Registry>
+  <Network>wazuh</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/wazuh/wazuh</Project>
+  <Overview>Wazuh Dashboard&#xD;
+&#xD;
+https://hub.docker.com/r/wazuh/wazuh-dashboard</Overview>
+  <Category/>
+  <WebUI>https://[IP]:[PORT:1000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/wazuh-dashboard.png</Icon>
+  <ExtraParams>--hostname wazuh.dashboard</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1710768899</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web UI" Target="5601" Default="1000" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Indexer Username" Target="INDEXER_USERNAME" Default="admin" Mode="" Description="The admin user specified in internal_users.yml (wazuh indexer config)" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Indexer Password" Target="INDEXER_PASSWORD" Default="SecretPassword" Mode="" Description="The password for the admin user specified in internal_users.yml (wazuh indexer config). See the docs on changing the password from the default (SecretPassword)." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Wazuh Manager URL" Target="WAZUH_API_URL" Default="https://wazuh.manager" Mode="" Description="Enter the URL of the wazuh manager, including FQDN (hostname, IP etc.). " Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Dashboard (Kibana) Username" Target="DASHBOARD_USERNAME" Default="kibanaserver" Mode="" Description="The kibana user specified in internal_users.yml (indexer config)" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Dashboard (Kibana) Password" Target="DASHBOARD_PASSWORD" Default="kibanaserver" Mode="" Description="The kibana user password specified in internal_users.yml (indexer config). See the docs on changing the password from the default (kibanaserver)." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Wazuh API username" Target="API_USERNAME" Default="wazuh-wui" Mode="" Description="Wazuh API username set in wazuh manager docker config." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Wazuh API Password" Target="API_PASSWORD" Default="MyS3cr37P450r.*-" Mode="" Description="Wazuh API password set in wazuh manager docker config. You also need to put the password in wazuh.yml" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Config file" Target="/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml" Default="/mnt/cache/appdata/wazuh/wazuh_dashboard/wazuh.yml" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Dashboards config" Target="/usr/share/wazuh-dashboard/config/opensearch_dashboards.yml" Default="/mnt/cache/appdata/wazuh/wazuh_dashboard/opensearch_dashboards.yml" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Dashboard Cert" Target="/usr/share/wazuh-dashboard/certs/wazuh-dashboard.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/wazuh.dashboard.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Dashboard Key" Target="/usr/share/wazuh-dashboard/certs/wazuh-dashboard-key.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/wazuh.dashboard-key.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Root CA Cert" Target="/usr/share/wazuh-dashboard/certs/root-ca.pem" Default="/mnt/cache/appdata/wazuh/wazuh-certificates/root-ca.pem" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+</Container>
