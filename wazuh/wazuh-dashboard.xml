@@ -13,7 +13,7 @@
 &#xD;
 https://hub.docker.com/r/wazuh/wazuh-dashboard</Overview>
   <Category/>
-  <WebUI>https://[IP]:[PORT:1000]</WebUI>
+  <WebUI>https://[IP]:[PORT:5601]</WebUI>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/wazuh-dashboard.png</Icon>
   <ExtraParams>--hostname wazuh.dashboard</ExtraParams>
