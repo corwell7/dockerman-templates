@@ -16,7 +16,7 @@ BEFORE you setup this template and create the container, there are some initial 
 </Overview>
   <Category>Cloud: Productivity:</Category>
   <WebUI>https://[IP]:[PORT:9200]</WebUI>
-  <ReadMe>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/ocis/README.md</ReadMe>
+  <ReadMe>https://github.com/corwell7/dockerman-templates/blob/main/ocis/README.md</ReadMe>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/ocis.png</Icon>
   <ExtraParams/>

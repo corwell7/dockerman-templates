@@ -16,7 +16,8 @@ chown -Rfv 1000:1000 /mnt/user/appdata/ocis/
 3. Run the following (in the terminal) to initialise the config. \
    Make sure the source path is the same as the /ocis-config directory you just created. \
    Replace \<CURRENTVERSION> with the latest stable release (e.g. 5.0.2). Do not use the :latest tag. \
-   You can find releases here: https://github.com/owncloud/ocis/releases.
+   You can find releases here: https://github.com/owncloud/ocis/releases. \
+   You will also need to add this to the template on the 'Repository' line. E.g. owncloud/ocis:**5.0.2**
 ```
 docker run --rm -it \
     --mount type=bind,source=/mnt/user/appdata/ocis/ocis-config,target=/etc/ocis \
