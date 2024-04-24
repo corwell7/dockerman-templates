@@ -9,32 +9,35 @@
   <Privileged>false</Privileged>
   <Support>https://central.owncloud.org/c/ocis/</Support>
   <Project>https://github.com/owncloud/ocis</Project>
-  <Overview>ownCloud Infinite Scale (oCIS) is the new file sync &amp;amp; share platform that will be the foundation of your data management platform.&#xD;
+  <Overview>ownCloud Infinite Scale (oCIS) is the new file sync &amp;amp; share platform that will be the foundation of your data management platform. https://github.com/owncloud/ocis&#xD;
 &#xD;
-https://github.com/owncloud/ocis</Overview>
-  <Category>Cloud:</Category>
+====!IMPORTANT!====&#xD;
+BEFORE you setup this template and create the container, there are some initial steps you need to take. Please look at the readme for instructions (click Support&amp;gt;Read Me First)&#xD;
+</Overview>
+  <Category>Cloud: Productivity:</Category>
   <WebUI>https://[IP]:[PORT:9200]</WebUI>
+  <ReadMe>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/ocis/README.md</ReadMe>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/corwell7/dockerman-templates/main/icons/ocis.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1697867474</DateInstalled>
+  <DateInstalled>1713946884</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
   <Config Name="WEBUI" Target="9200" Default="9200" Mode="tcp" Description="For connecting to the frontend" Type="Port" Display="always" Required="true" Mask="false"/>
-  <Config Name="Appdata / config" Target="/etc/ocis" Default="/mnt/user/appdata/ocis/ocis-config/" Mode="rw" Description="For configuration files" Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Data" Target="/var/lib/ocis" Default="/mnt/user/appdata/ocis/ocis-data/" Mode="rw" Description="For data" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Appdata / config" Target="/etc/ocis" Default="/mnt/user/appdata/ocis/ocis-config/" Mode="rw" Description="For configuration files. If this will be mapped to a cache device on your host, use /mnt/cache/ instead of /mnt/user (for performance reasons)." Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Data" Target="/var/lib/ocis" Default="/mnt/user/appdata/ocis/ocis-data/" Mode="rw" Description="For data. For configuration files. If this will be mapped to a cache device on your host, use /mnt/cache/ instead of /mnt/user (for performance reasons)." Type="Path" Display="always" Required="true" Mask="false"/>
   <Config Name="Self-Signed cert" Target="OCIS_INSECURE" Default="true" Mode="" Description="Determines whether owncloud should use an auto-generated self-signed certificate. Setting to false requires a user provided signed certificate (with PROXY_TRANSPORT_TLS_KEY and PROXY_TRANSPORT_TLS_CERT). Just set to true if you're using a reverse-proxy" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="HTTP Service Bind Address" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="The bind address of the HTTP service (within the container). This should match the WEBUI port. Don't change this." Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="URL" Target="OCIS_URL" Default="https://[IP]:9200" Mode="" Description="Set to the FQDN you'll be using for owncloud. Can be an IP or a domain etc. Otherwise owncloud will use localhost (container address)." Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="Service Account ID" Target="OCIS_SERVICE_ACCOUNT_ID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="Service Account Secret" Target="OCIS_SERVICE_ACCOUNT_SECRET" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="true"/>
-  <Config Name="Log File" Target="OCIS_LOG_FILE" Default="/etc/ocis/ocis.log" Mode="" Description="Log file location (within container)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="HTTP Service Bind Address" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="The bind address of the HTTP service (within the container). Don't change this." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="URL" Target="OCIS_URL" Default="https://[DOMAIN] OR [IP:PORT]" Mode="" Description="Set to the FQDN you'll be using for owncloud. &#13;&#10;Can be an IP or a domain etc. E.g. https://owncloud.my.domain/ Otherwise owncloud will use localhost (container address)." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Service Account ID" Target="OCIS_SERVICE_ACCOUNT_ID" Default="" Mode="" Description="Set the Service Account ID (Required from ocis 5.0). Recommended to use a UUIDv4 string. Can just generate one online: https://www.uuidgenerator.net/version4" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Service Account Secret" Target="OCIS_SERVICE_ACCOUNT_SECRET" Default="" Mode="" Description="Set the Service Account Secret (Required from ocis 5.0). Any random long string (30+ characters) will work: https://bitwarden.com/password-generator/" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Log File" Target="OCIS_LOG_FILE" Default="/etc/ocis/ocis.log" Mode="" Description="Log file location (within container). Optional" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="OIDC Issuer" Target="OCIS_OIDC_ISSUER" Default="" Mode="" Description="URL of your OIDC Issuer. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="OIDC Client ID" Target="OCIS_OIDC_CLIENT_ID" Default="" Mode="" Description="OIDC Client ID (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="OIDC Config URL" Target="WEB_OIDC_METADATA_URL" Default="" Mode="" Description="OIDC Config Endpoint (/.well-known/openid-configuration) (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="Rewrite OIDC config endpoint" Target="PROXY_OIDC_REWRITE_WELLKNOWN" Default="true" Mode="" Description="Enables rewriting the /.well-known/openid-configuration to the configured OIDC issuer. Needed by the Desktop Client, Android Client and iOS Client to discover the OIDC provider. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
-  <Config Name="Token Verification Method" Target="PROXY_OIDC_ACCESS_TOKEN_VERIFY_METHOD" Default="jwt" Mode="" Description="Sets how OIDC access tokens should be verified. Possible values are 'none' and 'jwt'. When using 'none', no special validation apart from using it for accessing the IPD&#x2019;s userinfo endpoint will be done. When using 'jwt', it tries to parse the access token as a jwt token and verifies the signature using the keys published on the IDP&#x2019;s 'jwks_uri'. (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Token Verification Method" Target="PROXY_OIDC_ACCESS_TOKEN_VERIFY_METHOD" Default="jwt" Mode="" Description="Sets how OIDC access tokens should be verified. Possible values are 'none' and 'jwt'. When using 'none', no special validation apart from using it for accessing the IPD&#x2019;s userinfo endpoint will be done. When using 'jwt', it tries to parse the access token as a jwt token and verifies the signature using the keys published on the IDP&#x2019;s 'jwks_uri'. Defaults to 'jwt' (REMOVE IF YOU ARE NOT USING OIDC)" Type="Variable" Display="always" Required="false" Mask="false"/>
 </Container>
